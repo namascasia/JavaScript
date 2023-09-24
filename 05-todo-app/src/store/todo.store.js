@@ -12,6 +12,8 @@ const state = {
         new Todo('Hola Aleman'),
         new Todo('Hola Admin'),
         new Todo('Hola Ramses'),
+        new Todo('Hola Rafaela'),
+        new Todo('Hola Guadalupe'),
     ],
     filter: Filters.All,
 }
@@ -55,7 +57,13 @@ const addTodo = ( description ) => {
  * @param {String} todoId identified
  */
 const toggleTodo = ( todoId ) => {
-    throw new Error('Not implemented');
+
+    state.todos = state.todos.map( todo => {
+        if( todo.id === todoId){
+            todo.done = !todo.done;
+        }
+        return todo; //regresar la instancia
+    });
 }
 /**
  * elimina un todo
