@@ -19,15 +19,21 @@ const state = {
 }
 
 const initStore = () => {
-    console.log(state);
+    loadStore();
     console.log('InitStore :)'); 
 }
 
 
 const loadStore = () => {
-    throw new Error('Not implemented');
+    if( !localStorage.getItem('state')) return;
+    
+    const { todos = [], filter = Filters.All } = JSON.parse( localStorage.getItem('state') );
+    state.todos = todos;
+    state.filter = filter;
 }
-
+const saveStateToLocalStorage = () =>{
+    localStorage.setItem('state', JSON.stringify(state)); //Obtiene un string de todo el state para manternelo en la pagina aun cuando se recargue
+}
 /**
  * Obtener los todos 
  * @param {String} filter 
@@ -51,6 +57,7 @@ const getTodos = ( filter = Filters.All ) => {
 const addTodo = ( description ) => {
     if( !description ) throw new Error('Description is requiered');
     state.todos.push( new Todo( description ) );
+    saveStateToLocalStorage();
 }
 /**
  * Marca estado de terminado o pendiente
@@ -64,6 +71,7 @@ const toggleTodo = ( todoId ) => {
         }
         return todo; //regresar la instancia
     });
+    saveStateToLocalStorage();
 }
 /**
  * elimina un todo
@@ -71,10 +79,12 @@ const toggleTodo = ( todoId ) => {
  */
 const deleteTodo = ( todoId ) => {
     state.todos = state.todos.filter( todo => todo.id !== todoId);
+    saveStateToLocalStorage();
 }
 
 const deleteCompleted = () => {
     state.todos = state.todos.filter( todo => todo.done );
+    saveStateToLocalStorage();
 }
 
 /**
@@ -84,6 +94,7 @@ const deleteCompleted = () => {
 const setFilter = ( newFilter = Filters.All ) => {
     // Object.keys(Filters).includes(newFilter);
     state.filter = newFilter;
+    saveStateToLocalStorage();
 }
 
 const getCurrentFilter = () => {
