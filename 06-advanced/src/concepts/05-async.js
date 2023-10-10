@@ -6,11 +6,11 @@ import {heroes} from '../data/heroes';
 export const asyncComponent = ( element ) =>{
 
     const id1 = '5d86371fd55e2e2a30fe1ccb';
-    console.log('Inicio de componente');
+    // console.log('Inicio de componente');
 
     findHero(id1)  //Ejecutada a destiempo del hilo principal del programa
-    .then( name => element.innerHTML = name )
-    .catch ( error => element.innerHTML = error)
+    .then( name => element.innerHTML = name ) //Manejo del exito
+    .catch ( error => element.innerHTML = error) //Manejo de errores
 }
 /**
  * 

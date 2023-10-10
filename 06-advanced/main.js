@@ -1,11 +1,10 @@
 import './style.css';
 import javascriptLogo from './javascript.svg';
 import viteLogo from '/vite.svg';
-import { enviromentComponents } from './src/concepts/01-enviroments';
-import { callbacksComponent } from './src/concepts/02-callbacks';
-import { promiseComponent } from './src/concepts/03-promises';
-import { promiseRaceComponent } from './src/concepts/04-promise-race';
-import { asyncComponent } from './src/concepts/05-async';
+import {enviromentComponents, callbacksComponent,
+  promiseComponent,promiseRaceComponent, 
+  asyncAwaitComponent, asyncAwait2Component, forAwaitComponent, generatorFunctionsComponent} from './src/concepts/barril';
+
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -26,8 +25,11 @@ const element = document.querySelector('.card');
 // callbacksComponent(element);
 // promiseComponent( element );
 // promiseRaceComponent( element );
-  asyncComponent(element);
-
+// asyncComponent(element);
+// asyncAwaitComponent(element);
+// asyncAwait2Component(element);
+// forAwaitComponent(element);
+generatorFunctionsComponent(element);
 
 
 
