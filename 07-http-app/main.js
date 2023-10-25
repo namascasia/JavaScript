@@ -1,7 +1,8 @@
 import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
-import { BreakingbadApp } from './src/breakingbad/breakingbad-app';
+// import { BreakingbadApp } from './src/breakingbad/breakingbad-app';
+import { UserApp } from './src/users/user-app';
 
 
 document.querySelector('#app').innerHTML = `
@@ -20,5 +21,6 @@ document.querySelector('#app').innerHTML = `
 `;
 
 const element = document.querySelector('.card');
-BreakingbadApp(element);
+// BreakingbadApp(element); seccion anterior
 
+UserApp( element );
