@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+:root{
+    --height-nav: 70px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #f2f2f2;
+}
+
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden; /*Todo lo que salga del container se esconde*/
+}
+
+.nav{
+    background-color: #143d64;
+    height: var(--height-nav);
+    color: white;
+}
+
+.nav_container{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_link{
+    color: white;
+    text-decoration: none;
+    margin-left: 1em;
+}
+
+.hero_main{
+    display: flex;
+    height: calc(100vh - var(--height-nav));
+    align-items: center;
+    min-height: 600px; /*Para que no baje de ese minimo al hacer responsive*/
+}
+
+.hero_texts{
+    flex: 1;
+}
+
+.hero_picture{
+    flex: 1;
+}
+
+.hero_img{
+    width: 100%;
+    max-width: 450px;
+    display: block;
+    margin:  0 auto;
+}
+
+.hero_title{
+    font-size: 3rem;
+}
+
+.hero_paragraph{
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.buttonVerMas{
+    background: #6c63ff;
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 1.5rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 900px) {
+    :root{
+        --height-nav: 100px;
+    }
+
+    .nav_container{
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .hero_main{
+        flex-direction: column;
+        padding: 40px 0px;
+    }
+
+    .hero_picture{
+        order: -1;
+    }
+
+    .hero_img{
+        max-width: 580px;
+    }
+
+    .hero_texts{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* justify-content: center; */
+    }
+
+    .hero_title{
+        font-size: 2.5rem;
+    }
+
+    .hero_paragraph{
+        font-size: 1.2rem;
+    }
+}
